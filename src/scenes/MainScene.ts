@@ -12,15 +12,25 @@ class MainScene extends Phaser.Scene {
 
     public preload(): void {
         //loading assests here.
-        // havent created the pngs yet.
-        this.load.spritesheet('palyer', 'assets/player.png', {
-            frameWidth : 30,
-            frameHeight : 30
+        
+        this.load.image('tileset', '../assets/tiles/tileset.png')
+        this.load.tilemapTiledJSON('map', '../assets/maps/TiledMap.json')
+        this.load.spritesheet('player', 'assets/player.png', {
+            frameWidth : 32,
+            frameHeight : 32
         });
     }
 
     public create(): void {
         // player and its animations 
+        const map = this.make.tilemap({key : 'map'})
+        const tileset = map.addTilesetImage('cpws','tileset');
+
+        const backgroundLayer = map.createLayer('Background', tileset!, 0,0)
+        const collisionLayer = map.createLayer('Collision', tileset!, 0, 0);
+
+        collisionLayer?.setCollisionByProperty({collides : true})
+
         this.player = this.physics.add.sprite(400, 300, 'player');
         this.anims.create({
             key : 'walk', 
@@ -28,6 +38,8 @@ class MainScene extends Phaser.Scene {
             frameRate: 10,
             repeat: -1,
         });
+
+        this.physics.add.collider(this.player, collisionLayer!)
         
         //key controls 
         this.cursors = this.input.keyboard!.createCursorKeys();
@@ -40,9 +52,11 @@ class MainScene extends Phaser.Scene {
     if (this.cursors.left?.isDown) {
         this.player.setVelocityX(-200);
         this.player.anims.play('walk', true);
+        this.player.flipX = true; 
     } else if (this.cursors.right?.isDown) {
         this.player.setVelocityX(200);
         this.player.anims.play('walk', true);
+        this.player.flipX = false;
     } else if (this.cursors.up?.isDown) {
         this.player.setVelocityY(-200);
         this.player.anims.play('walk', true);
