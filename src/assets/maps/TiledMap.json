@@ -134,39 +134,6 @@
                  "width":30.8494007295467,
                  "x":640.333507034914,
                  "y":382.699322563835
-                }, 
-                {
-                 "height":64.2001042209484,
-                 "id":9,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":30.0156331422616,
-                 "x":161.750911933299,
-                 "y":349.348619072434
-                }, 
-                {
-                 "height":27.5143303804065,
-                 "id":10,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":95.049504950495,
-                 "x":255.132881709224,
-                 "y":482.751433038041
-                }, 
-                {
-                 "height":56.696195935383,
-                 "id":11,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":45.8572173006774,
-                 "x":321.000521104742,
-                 "y":419.385096404377
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -237,15 +204,24 @@
          "y":0
         }],
  "nextlayerid":6,
- "nextobjectid":12,
+ "nextobjectid":13,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.11.1",
  "tileheight":32,
  "tilesets":[
         {
+         "columns":21,
          "firstgid":1,
-         "source":"..\/cpws.tsx"
+         "image":"..\/..\/..\/..\/..\/projects\/pixel-cyberpunk-interior.png",
+         "imageheight":352,
+         "imagewidth":672,
+         "margin":0,
+         "name":"cpws",
+         "spacing":0,
+         "tilecount":231,
+         "tileheight":32,
+         "tilewidth":32
         }],
  "tilewidth":32,
  "type":"map",
