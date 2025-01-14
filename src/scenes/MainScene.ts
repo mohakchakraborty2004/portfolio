@@ -39,7 +39,7 @@ class MainScene extends Phaser.Scene {
                 throw new Error('Failed to load tileset. Check if the tileset name matches the one in Tiled.');
             }
 
-            // Create layers
+           
             const layer1 = map.createLayer('Tile Layer 1', tileset, 0, 0);
             const layer2 = map.createLayer('Tile Layer 2', tileset, 0, 0);
             const layer3 = map.createLayer('Tile Layer 3', tileset, 0, 0);
@@ -47,7 +47,9 @@ class MainScene extends Phaser.Scene {
 
             console.log('Layers created:', { layer1, layer2, layer3, layer4 });
 
-            // Create player
+          
+
+            
             this.player = this.physics.add.sprite(400, 300, 'player');
             
             // Create animation
@@ -58,6 +60,24 @@ class MainScene extends Phaser.Scene {
                 repeat: -1,
             });
 
+            const collisionObjects = map.getObjectLayer('Object Layer 1')?.objects;
+
+            if(collisionObjects){
+                collisionObjects.forEach((object)=> {
+                    const obj = this.physics.add.staticSprite(object.x! , object.y!, "")
+                    obj.setOrigin(0,1);
+
+                    obj.setSize(object.width! , object.height!);
+                    obj.setOffset(0, 0);
+                    obj.setVisible(false);
+                    
+                    this.physics.add.collider(this.player, obj);
+                }) 
+            }
+
+            this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+            this.physics.world.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+            this.cameras.main.startFollow(this.player);
             // Set up controls
             this.cursors = this.input.keyboard!.createCursorKeys();
 

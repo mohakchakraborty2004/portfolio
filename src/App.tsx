@@ -6,20 +6,23 @@ function App() {
   useEffect(() => {
     const config: Phaser.Types.Core.GameConfig = {
       type: Phaser.AUTO,
-      width: 960,
-      height: 576,
+      width: window.innerWidth,
+      height: window.innerHeight,
       parent: 'game-container',  
       physics: {                 
         default: 'arcade',
         arcade: {
           gravity: { y: 0, x:0 },
-          debug: true           // Added debug for development
         }
       },
       scene: MainScene,
       audio: {
         disableWebAudio: true
       },
+      scale: {
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH
+    }
     };
 
     const game = new Phaser.Game(config);
@@ -30,7 +33,7 @@ function App() {
   }, []);
 
   return (
-    <div id="game-container" style={{ width: '960px', height: '576px' }}></div>
+    <div id="game-container"></div>
   );
 }
 
