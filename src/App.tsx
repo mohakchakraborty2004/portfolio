@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import Phaser from 'phaser';
 import MainScene from './scenes/MainScene';
+import './App.css';
 
 function App() {
   useEffect(() => {
@@ -33,7 +34,16 @@ function App() {
   }, []);
 
   return (
-    <div id="game-container"></div>
+    <>
+      <div className="navbar">
+    <div className="name">moChak.rs</div>
+    <div className="github-link">
+      <a href="https://github.com/mohakchakraborty2004/portfolio" target="_blank">GitHub</a>
+    </div>
+  </div>
+     <div id="game-container"></div>
+    </>
+   
   );
 }
 

@@ -90,6 +90,7 @@ class MainScene extends Phaser.Scene {
                 dialogArea.setOffset(0, 0);
 
                 dialogArea.setData('message', message);
+                dialogArea.setVisible(false);
 
                 // Add collision with player
                 this.physics.add.collider(this.player, dialogArea, () => {
@@ -101,6 +102,7 @@ class MainScene extends Phaser.Scene {
             this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
             this.physics.world.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
             this.cameras.main.startFollow(this.player);
+            this.cameras.main.setZoom(2);
             // Set up controls
             this.cursors = this.input.keyboard!.createCursorKeys();
 

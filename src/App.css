@@ -1,1 +1,34 @@
+/* AI generated */
 
+.navbar {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px 20px; 
+    background-color: #282c34; 
+    color: white; 
+    position: fixed;
+       top: 0; 
+    left: 0;
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensure it's above other elements */
+  }
+  
+  /* Name Styling */
+  .navbar .name {
+    font-size: 1.5rem; /* Slightly larger text */
+    font-weight: bold; /* Bold font */
+  }
+  
+  /* GitHub Link Styling */
+  .navbar .github-link a {
+    text-decoration: none; /* Remove underline from the link */
+    color: #61dafb; /* Light blue color for the link */
+    font-size: 1rem; /* Normal font size */
+    transition: color 0.3s ease; /* Smooth transition on hover */
+  }
+  
+  .navbar .github-link a:hover {
+    color: #21a1f1; /* Change color on hover */
+  }
+  
