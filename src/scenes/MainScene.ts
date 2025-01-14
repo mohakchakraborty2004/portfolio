@@ -3,6 +3,8 @@ import Phaser from "phaser";
 class MainScene extends Phaser.Scene {
     private player!: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody;
     private cursors!: Phaser.Types.Input.Keyboard.CursorKeys;
+    private dialogBox!: Phaser.GameObjects.Container;
+    private dialogText!: Phaser.GameObjects.Text;
 
     constructor() {
         super('MainScene');
@@ -70,9 +72,30 @@ class MainScene extends Phaser.Scene {
                     obj.setSize(object.width! , object.height!);
                     obj.setOffset(0, 0);
                     obj.setVisible(false);
-                    
+
                     this.physics.add.collider(this.player, obj);
                 }) 
+            }
+
+            const dialogAreas = map.getObjectLayer('Object Layer 2')?.objects;
+
+            if (dialogAreas) {
+            dialogAreas.forEach((area) => {
+                const dialogArea = this.physics.add.staticImage(area.x!, area.y!, ''); // Invisible area
+
+                const message = area.properties?.find((prop: any) => prop.name === 'message')?.value || "lmao";
+
+                dialogArea.setOrigin(0, 1);
+                dialogArea.setSize(area.width!, area.height!);
+                dialogArea.setOffset(0, 0);
+
+                dialogArea.setData('message', message);
+
+                // Add collision with player
+                this.physics.add.collider(this.player, dialogArea, () => {
+                    this.showDialog(message);
+                });
+                });
             }
 
             this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
@@ -107,6 +130,41 @@ class MainScene extends Phaser.Scene {
             this.player.anims.play('walk', true);
         } else {
             this.player.anims.stop();
+        }
+    }
+
+    public showDialog(message : string) :void {
+
+        if (!this.dialogBox) {
+            this.dialogBox = this.add.container(0, 0).setDepth(10); 
+            const graphics = this.add.graphics({ fillStyle: { color: 0x000000, alpha: 0.7 } });
+            graphics.fillRect(200, 150, 400, 200);
+
+            this.dialogText = this.add.text(250, 200, message, {
+                font: '24px Arial',
+                color: '#ffffff',
+                wordWrap: { width: 350 },
+            });
+            
+            this.dialogBox.add([graphics, this.dialogText]);
+
+            // Optionally, add a close button
+            const closeButton = this.add.text(550, 200, 'X', { font: '32px Arial', color: '#ff0000' })
+                .setInteractive()
+                .on('pointerdown', () => this.closeDialog());
+            
+             this.dialogBox.add(closeButton);
+        } else {
+            this.dialogText.setText(message);
+            this.dialogBox.setVisible(true);
+        }
+
+
+    }
+
+    public closeDialog(): void {
+        if (this.dialogBox) {
+            this.dialogBox.setVisible(false);
         }
     }
 }

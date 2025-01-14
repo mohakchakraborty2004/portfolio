@@ -269,7 +269,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":true,
+         "visible":false,
          "x":0,
          "y":0
         }, 
@@ -334,9 +334,156 @@
          "width":30,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":6,
+         "name":"Object Layer 2",
+         "objects":[
+                {
+                 "height":38.353309015112,
+                 "id":26,
+                 "name":"workspace",
+                 "properties":[
+                        {
+                         "name":"message",
+                         "type":"string",
+                         "value":"This is my Workspace, I code stuff sitting here."
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":85.8780614903596,
+                 "x":290.984887962481,
+                 "y":290.984887962481
+                }, 
+                {
+                 "height":64.2001042209484,
+                 "id":27,
+                 "name":"bed",
+                 "properties":[
+                        {
+                         "name":"message",
+                         "type":"string",
+                         "value":"felt sleepy already? I rest here and sleep."
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":71.7040125065138,
+                 "x":160.917144346014,
+                 "y":289.31735278791
+                }, 
+                {
+                 "height":60.0312662845232,
+                 "id":28,
+                 "name":"dining area",
+                 "properties":[
+                        {
+                         "name":"message",
+                         "type":"string",
+                         "value":"I enjoy my food here( I order online)"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":75.039082855654,
+                 "x":369.359041167275,
+                 "y":383.53309015112
+                }, 
+                {
+                 "height":23.3454924439812,
+                 "id":29,
+                 "name":"kitchen",
+                 "properties":[
+                        {
+                         "name":"message",
+                         "type":"string",
+                         "value":"when I run out of money I cook here."
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":218.447107868682,
+                 "x":450.234497133924,
+                 "y":317.665450755602
+                }, 
+                {
+                 "height":36.685773840542,
+                 "id":30,
+                 "name":"gitub",
+                 "properties":[
+                        {
+                         "name":"message",
+                         "type":"string",
+                         "value":"take a look at my list of projects on github - mohakchakraborty2004"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":25.0130276185513,
+                 "x":387.701928087546,
+                 "y":260.969254820219
+                }, 
+                {
+                 "height":41.6883793642522,
+                 "id":31,
+                 "name":"socials",
+                 "properties":[
+                        {
+                         "name":"message",
+                         "type":"string",
+                         "value":"follow me on twitter. "
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":42.5221469515373,
+                 "x":247.628973423658,
+                 "y":258.467952058364
+                }, 
+                {
+                 "height":71.7040125065138,
+                 "id":32,
+                 "name":"about",
+                 "properties":[
+                        {
+                         "name":"message",
+                         "type":"string",
+                         "value":"Well, My name is MohaK chakraborty."
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":65.0338718082335,
+                 "x":65.0338718082335,
+                 "y":388.535695674831
+                }, 
+                {
+                 "height":38.3533090151121,
+                 "id":33,
+                 "name":"table",
+                 "properties":[
+                        {
+                         "name":"message",
+                         "type":"string",
+                         "value":"it's just a.. table ig ?"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":83.3767587285045,
+                 "x":265.971860343929,
+                 "y":486.920270974466
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":6,
- "nextobjectid":26,
+ "nextlayerid":7,
+ "nextobjectid":34,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.11.1",
