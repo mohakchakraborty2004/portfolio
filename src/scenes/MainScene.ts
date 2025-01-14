@@ -14,9 +14,9 @@ class MainScene extends Phaser.Scene {
         // Add console logs to verify loading
         console.log('Preload started');
         
-        this.load.image('tileset', '/src/assets/tiles/tileset.png');
-        this.load.tilemapTiledJSON('map', '/src/assets/maps/TiledMap.json');
-        this.load.spritesheet('player', '/src/assets/sprites/player.png', {
+        this.load.image('tileset', '/assets/tiles/tileset.png');
+        this.load.tilemapTiledJSON('map', '/assets/maps/TiledMap.json');
+        this.load.spritesheet('player', '/assets/sprites/player.png', {
             frameWidth: 32,
             frameHeight: 32
         });
